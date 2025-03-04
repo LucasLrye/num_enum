@@ -81,8 +81,7 @@ impl<Enum: TryFromPrimitive> fmt::Display for TryFromPrimitiveError<Enum> {
     }
 }
 
-#[cfg(feature = "std")]
-impl<Enum: TryFromPrimitive> ::std::error::Error for TryFromPrimitiveError<Enum> {}
+impl<Enum: TryFromPrimitive> ::core::error::Error for TryFromPrimitiveError<Enum> {}
 
 // This trait exists to try to give a more clear error message when someone attempts to derive both FromPrimitive and TryFromPrimitive.
 // This isn't allowed because both end up creating a `TryFrom<primitive>` implementation.
